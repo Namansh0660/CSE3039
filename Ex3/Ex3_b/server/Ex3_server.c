@@ -28,9 +28,11 @@ int main()
 	while(1)
 	{
 		bzero(str,100);
-		read(listen_fd,str,100);
-		printf("Echoning back - %s",str);
-		write(comm_fd,str,strlen(str)+1);
+		read(comm_fd,str,100);
+		printf("Echoing back - %s",str);
+		write(comm_fd, str, strlen(str)+1);
 	}
+	close(listen_fd);
+	close(comm_fd);
 }
 
