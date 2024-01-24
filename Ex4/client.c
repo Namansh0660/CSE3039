@@ -17,7 +17,7 @@ int main(int argc,char *argv[])
         memset(&serv,0,sizeof(serv));
         serv.sin_family=AF_INET;
         serv.sin_port=htons(PORT);
-        serv.sin_addr.s_addr=inet_addr(argv[1]);
+        serv.sin_addr.s_addr= INADDR_ANY;
         if (connect(sockfd,(struct sockaddr *)&serv, sizeof(serv))<0)
         {
                 printf("error in connect");
