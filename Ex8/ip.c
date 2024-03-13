@@ -2,9 +2,25 @@
 #include<stdlib.h>
 #include<string.h>
 
-void decimalToBinary(int decimalNum) 
-{
-    int binaryNum[32];
+//void decimalToBinary(int decimalNum) 
+//{
+//    int binaryNum[32];
+//    int i = 0;
+//
+//    while (decimalNum > 0) {
+//        binaryNum[i] = decimalNum % 2;
+//        decimalNum = decimalNum / 2;
+//        i++;
+//    }
+//    for (int j = i - 1; j >= 0; j--) {
+//        printf("%d", binaryNum[j]);
+//    }
+//    printf("\n");
+//}
+//
+
+void decimalToBinary(int decimalNum) {
+    int binaryNum[8];
     int i = 0;
 
     while (decimalNum > 0) {
@@ -13,35 +29,54 @@ void decimalToBinary(int decimalNum)
         i++;
     }
 
-    printf("\n-\n");
-    for (int j = i - 1; j >= 0; j--) {
+    // Pad with leading zeros if necessary
+    while (i < 8) {
+        binaryNum[i] = 0;
+        i++;
+    }
+
+    for (int j = 7; j >= 0; j--) {
         printf("%d", binaryNum[j]);
     }
 }
 
-
 int main()
 {
-    char ip_address[16]; // Assuming IPv4 address with maximum length of 15 characters
+    char ip_address[16]; 
     char *token;
     
     printf("Enter an IP address: ");
     scanf("%15s", ip_address);
     
-    // Split the IP address into individual strings
-    token = strtok(ip_address, ".");
+    int choice;
+    printf("1\t-\tClassfull\n2\t-\tClassless\n3\t-\tExit\nEnter your choice : ");
+    scanf("%d",&choice);
     
-    // Iterate through each string and convert it to an integer
-    while (token != NULL) {
-        int digit = atoi(token);
-        printf("%d\n", digit);
+    switch(choice){
+    
+        case 1 :
         
-        // Get the next token
-        token = strtok(NULL, ".");
+            token = strtok(ip_address, ".");
+            
+            while (token != NULL) {
+                int digit = atoi(token);
+                printf("\n%d\n", digit);
+                
+                decimalToBinary(digit);
+                
+                token = strtok(NULL, ".");
+            }
+            break;
         
-        //binary to decimal
-        decimalToBinary(*token);
+        
+        case 2 : 
+            printf("Working on it\n");
+            break;
+            
+        
+        case 3 : exit(0);
     }
     
     return 0;
+
 }
