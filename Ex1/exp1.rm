@@ -1,0 +1,24 @@
+# Commands
+ifconfig
+ifconfig -a
+ifconfig -s
+traceroute , ex: traceroute google.com
+nslookup , ex: nslookup google.com
+ping , ex: ping google.com
+host , ex: host google.com
+netsat
+netstat -a
+netstat -at
+nestat -an
+nestat -l
+netstat -lt
+netstat -lu
+netstat -s
+netstat -p
+netstat -r
+netstat -i
+netstat -su
+netstat -st
+arp
+arp -a
+arp -s
